@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Boyfriend Day — Ameer 💘</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1: #fff0fb;
+      --bg-2: #ffeef8;
+      --accent: #ff3da6;
+      --accent-2: #ff9ede;
+      --card: rgba(255,255,255,0.75);
+      --muted: #4b4b4b;
+      --neon: #ff66c4;
+      --neon-2: #ff3da6;
+    }
+
+    /* Reset + base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* Soft container */
+    .container{
+      max-width:1000px;
+      margin:40px auto;
+      padding:26px;
+    }
+
+    /* Header */
+    .header {
+      position:relative;
+      padding:36px 20px;
+      border-radius:24px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,245,255,0.6));
+      box-shadow: 0 12px 30px rgba(255,77,166,0.12);
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .title {
+      text-align:left;
+    }
+    .title h1{
+      margin:0;
+      font-family:"Dancing Script", "Poppins", cursive;
+      font-size:44px;
+      color:var(--accent);
+      letter-spacing:0.6px;
+      text-shadow: 0 6px 28px rgba(255,77,166,0.15);
+      transform-origin:center;
+      animation: gentleFloat 7s ease-in-out infinite;
+    }
+    .subtitle{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:15px;
+      font-weight:500;
+    }
+
+    /* floating hearts */
+    .floating-heart {
+      position:absolute;
+      right:-10px;
+      top:-10px;
+      font-size:140px;
+      opacity:0.08;
+      transform:rotate(-12deg);
+    }
+
+    @keyframes gentleFloat {
+      0% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-6px) rotate(-1deg); }
+      100% { transform: translateY(0) rotate(0); }
+    }
+
+    /* Main grid */
+    .grid {
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      margin-top:20px;
+    }
+    @media(min-width:880px){
+      .grid { grid-template-columns: 1fr 420px; align-items:start; }
+    }
+
+    /* Love letter card */
+    .card {
+      background: var(--card);
+      border-radius:18px;
+      padding:22px;
+      box-shadow: 0 10px 30px rgba(50,20,60,0.06);
+      color:#1c1c1c;
+    }
+    .love-letter{
+      font-size:16px;
+      line-height:1.65;
+      font-style:normal;
+      white-space:pre-wrap;
+    }
+    .love-letter .signature{
+      margin-top:18px;
+      text-align:right;
+      font-family:"Dancing Script";
+      font-size:22px;
+      color:var(--accent-2);
+    }
+
+    /* Right column boxes */
+    .box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,250,255,0.8));
+      border-radius:14px;
+      padding:18px;
+      margin-bottom:14px;
+      box-shadow: 0 8px 22px rgba(90,20,60,0.06);
+    }
+
+    /* Heart interactive */
+    .big-heart {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .big-heart .heart-btn{
+      font-size:66px;
+      width:120px;
+      height:120px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle at 30% 20%, #fff6fb, #ffdff4 30%, var(--accent) 100%);
+      color:white;
+      box-shadow: 0 10px 30px rgba(255,61,166,0.16);
+      transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .2s;
+    }
+    .big-heart .heart-btn:active{ transform:scale(.96) }
+    .heart-msg {
+      min-height:34px;
+      font-weight:600;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    /* Compliment generator */
+    .compliment-area {
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:center;
+    }
+    .compliment-btn {
+      background: linear-gradient(90deg,var(--accent),var(--neon-2));
+      border: none;
+      color:white;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      box-shadow: 0 8px 30px rgba(255,61,166,0.18);
+      cursor:pointer;
+      transition: transform .18s;
+    }
+    .compliment-btn:active{ transform:scale(.98) }
+    .compliment-display{
+      margin-top:4px;
+      text-align:center;
+      min-height:46px;
+      font-size:15px;
+      color:#222;
+      padding:6px 10px;
+    }
+
+    /* Floating hearts (decor) */
+    .heart-decor {
+      position:fixed;
+      left:0;right:0;top:0;bottom:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:1;
+    }
+    .heart-decor .h {
+      position:absolute;
+      font-size:20px;
+      opacity:0.9;
+      animation: floatUp linear infinite;
+      transform:translateY(110vh);
+      text-shadow: 0 6px 28px rgba(255,77,166,0.08);
+    }
+    @keyframes floatUp {
+      from { transform: translateY(110vh) scale(0.9); opacity:0; }
+      10% { opacity:0.9; }
+      to { transform: translateY(-20vh) scale(1.1); opacity:0; }
+    }
+
+    /* Hacker overlay */
+    #hackerOverlay {
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      background: linear-gradient(180deg, rgba(6,6,10,0.95), rgba(12,6,15,0.98));
+      color:var(--neon-2);
+      font-family:"Poppins";
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+    #hackerOverlay .overlay-inner{
+      position:relative;
+      width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      overflow:hidden;
+      padding:24px;
+      text-align:center;
+    }
+
+    /* Neon grid */
+    .neon-grid {
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(0deg, rgba(255,61,166,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,61,166,0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mix-blend-mode: screen;
+      transform:scale(1.03);
+      opacity:0.35;
+      filter: blur(4px) saturate(140%);
+    }
+
+    /* Glitchy heading */
+    .glitch {
+      font-family:"Dancing Script";
+      font-size:44px;
+      color:var(--neon-2);
+      position:relative;
+      line-height:1;
+      letter-spacing:0.6px;
+      text-shadow: 0 6px 18px rgba(255,102,196,0.1);
+    }
+    .glitch::before,
+    .glitch::after{
+      content:attr(data-text);
+      position:absolute;
+      left:0; top:0;
+      width:100%;
+      clip:rect(0,9999px,0,0);
+    }
+    .glitch::before{
+      left:2px;
+      text-shadow: -2px 0 var(--neon), 2px 2px rgba(255,102,196,0.2);
+      animation: flicker1 2.4s infinite linear;
+      opacity:.9;
+    }
+    .glitch::after{
+      left:-2px;
+      text-shadow: -2px -1px var(--neon-2);
+      animation: flicker2 3.1s infinite linear;
+      opacity:.85;
+    }
+    @keyframes flicker1 {
+      0% {clip:rect(0,9999px,0,0)}
+      10% {clip:rect(0,9999px,50px,0);}
+      20% {clip:rect(0,9999px,0,0);}
+      30% {clip:rect(0,9999px,70px,0);}
+      40% {clip:rect(0,9999px,0,0);}
+      70% {clip:rect(0,9999px,40px,0);}
+      100% {clip:rect(0,9999px,0,0);}
+    }
+    @keyframes flicker2 {
+      0% {clip:rect(0,9999px,0,0)}
+      15% {clip:rect(0,9999px,60px,0);}
+      25% {clip:rect(0,9999px,0,0);}
+      45% {clip:rect(0,9999px,80px,0);}
+      65% {clip:rect(0,9999px,0,0);}
+      100% {clip:rect(0,9999px,0,0);}
+    }
+
+    /* Floating flirt texts */
+    .float-flirt {
+      position:absolute;
+      font-weight:700;
+      color:var(--neon);
+      text-transform:uppercase;
+      font-size:18px;
+      letter-spacing:1px;
+      opacity:0.95;
+      mix-blend-mode:screen;
+      text-shadow:0 8px 28px rgba(255,61,166,0.06);
+      transform:translateY(110vh);
+      animation: floatFlirt linear infinite;
+    }
+    @keyframes floatFlirt {
+      0% { transform: translateY(110vh) rotate(-6deg); opacity:0; }
+      8% { opacity:1; }
+      100% { transform: translateY(-20vh) rotate(4deg); opacity:0; }
+    }
+
+    /* reward button */
+    .claim-btn {
+      background: linear-gradient(90deg,var(--accent), #ff7acb);
+      color:white;
+      border:none;
+      padding:14px 20px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 14px 40px rgba(255,61,166,0.18);
+    }
+
+    .overlay-sub {
+      color:#f9e6f2;
+      font-size:18px;
+      opacity:.95;
+    }
+
+    .close-x {
+      position:absolute;
+      right:18px;
+      top:18px;
+      background:transparent;
+      border:2px solid rgba(255,255,255,0.06);
+      color:#fff;
+      padding:8px 10px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    /* reward rain hearts */
+    .rain-heart {
+      position:fixed;
+      font-size:22px;
+      pointer-events:none;
+      animation: popUp 1200ms ease forwards;
+      transform-origin:center;
+      filter: drop-shadow(0 6px 14px rgba(255,61,166,0.18));
+    }
+    @keyframes popUp {
+      0% { transform: translateY(0) scale(.6); opacity:0; }
+      30% { opacity:1; transform: translateY(-60px) scale(1.1); }
+      100% { transform: translateY(-420px) scale(.9); opacity:0; }
+    }
+
+    /* small footer */
+    .small { font-size:13px; color:#666; margin-top:14px; text-align:center; }
+  </style>
+</head>
+<body>
+
+  <div class="heart-decor" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="header" role="banner">
+      <div class="title">
+        <h1>Happy Boyfriend Day, Ameer 💘</h1>
+        <div class="subtitle">For my favorite person — you break my heart in the best way. ✨</div>
+      </div>
+
+      <div class="floating-heart" aria-hidden="true">💕</div>
+    </div>
+
+    <div class="grid" role="main">
+      <!-- Left column -->
+      <div class="card">
+        <h2 style="margin-top:0;font-family:'Dancing Script';color:var(--neon-2)">My Love Letter</h2>
+
+        <div class="love-letter">
+Ameer — happy Boyfriend Day, my sweetest love. I tried to pick perfect words for you, but none of them feel big enough to hold what you mean to me. From the tiny ways you laugh at my dumb jokes, to the afternoons we spend doing nothing but somehow making them feel like everything — you turned ordinary moments into magic. You see me, even the parts I hide, and still choose me every day with such warmth that I can’t help but fall in love over and over again.
+
+You’ve taught me what it means to feel safe, wanted, and utterly adored. I carry your voice in my head when the world gets loud, and I keep your little messages like tiny treasures. When I think of the future, every day with you looks like home — messy, cozy, loud, sweet, always together. Thank you for being my favorite person to be with, to text, to dream with, to plan forever with. I promise to cheer you on, to make you laugh, to hold you when you need it, and to love you with all of me — forever and then some. 💖
+
+<span class="signature">— Always yours, Tash</span>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card" style="padding:14px; margin-top:14px;">
+          <h3 style="margin:0 0 10px 0">Interactive Heart</h3>
+          <div class="big-heart" onclick="heartClick()" title="Click me ♥">
+            <div class="heart-btn" id="heartBtn" aria-hidden="true">❤️</div>
+            <div class="heart-msg" id="heartMsg">Click the heart for secret messages.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right column -->
+      <div>
+        <div class="box card">
+          <h3 style="margin:0 0 8px 0">Compliment Generator</h3>
+          <div class="compliment-area">
+            <button class="compliment-btn" onclick="newCompliment()">Give me a compliment</button>
+            <div class="compliment-display" id="complimentDisplay">Click the button and watch the compliments roll in 💌</div>
+            <div style="font-size:12px;color:#888;margin-top:8px">Pro tip: click multiple times for new ones ✨</div>
+          </div>
+        </div>
+
+        <div class="box card" style="margin-top:14px;">
+          <h3 style="margin:0 0 8px 0">Secret Stuff</h3>
+          <p style="margin:0;color:#444">If you click any spot on the page <strong>3 times fast</strong>, you'll unlock a secret reward... but shhh — only for you 😉</p>
+        </div>
+
+        <div class="small">Built just for you — Boyfriend Day vibes 💕</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hacker overlay (hidden until unlocked) -->
+  <div id="hackerOverlay" role="dialog" aria-hidden="true">
+    <div class="neon-grid" aria-hidden="true"></div>
+
+    <div class="overlay-inner">
+      <button class="close-x" aria-label="Close secret" onclick="closeOverlay()">X</button>
+
+      <div class="glitch" data-text="Congrats, Hacker 😈 You broke my site.">Congrats, Hacker 😈 You broke my site.</div>
+      <div class="overlay-sub">Your reward? You get me — chaotic, messy, and obsessed with you. 💘</div>
+
+      <div style="height:6px"></div>
+      <div id="claimResult" style="font-weight:700;color:#ffdff6"></div>
+
+      <!-- floating flirt texts container -->
+      <div id="flirtContainer" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script>
+    /* ---------- Decorative floating hearts on main page ---------- */
+    (function spawnHearts(){
+      const container = document.querySelector('.heart-decor');
+      const heartEmojis = ['💖','💕','💘','❣️','💓'];
+      const spawn = () => {
+        const el = document.createElement('div');
+        el.className = 'h';
+        el.style.left = Math.random()*100 + 'vw';
+        el.style.fontSize = (12 + Math.random()*28) + 'px';
+        el.style.animationDuration = (6 + Math.random()*10) + 's';
+        el.style.opacity = 0.85;
+        el.textContent = heartEmojis[Math.floor(Math.random()*heartEmojis.length)];
+        container.appendChild(el);
+        setTimeout(()=> el.remove(), 14000);
+      };
+      // initial batch
+      for(let i=0;i<8;i++) setTimeout(spawn, i*350);
+      // keep spawning
+      setInterval(spawn, 1400);
+    })();
+
+    /* ---------- Interactive Heart (cycles messages) ---------- */
+    const heartLines = [
+      "I love you forever 💘",
+      "You're my favorite person in the whole world.",
+      "Forever yours and obsessed 😏",
+      "Thank you for being you.",
+      "You're my soft spot."
+    ];
+    let heartIndex = 0;
+    function heartClick(){
+      const msgEl = document.getElementById('heartMsg');
+      msgEl.innerText = heartLines[heartIndex];
+      heartIndex = (heartIndex + 1) % heartLines.length;
+
+      // little pulse animation
+      const btn = document.getElementById('heartBtn');
+      btn.style.transform = 'scale(1.06)';
+      setTimeout(()=> btn.style.transform = '', 220);
+    }
+
+    /* ---------- Compliment generator (30 compliments) ---------- */
+    const compliments = [
+      "You’re the most handsome person alive.",
+      "Your smile literally melts me.",
+      "You make my world brighter.",
+      "You’re my safe place.",
+      "Your voice makes me happy instantly.",
+      "You’re the funniest person ever.",
+      "I love the way you love me.",
+      "You’re my forever.",
+      "Your hugs (real or imagined) are everything.",
+      "You’re my favorite notification.",
+      "You look good in literally anything.",
+      "You’re the sweetest soul.",
+      "You always know how to make me smile.",
+      "You’re my dream come true.",
+      "I’m so proud of you.",
+      "You’re the highlight of my day, every day.",
+      "Your laugh is my favorite sound.",
+      "You’re the best boyfriend ever.",
+      "I could stare at you forever.",
+      "You’re the most charming human alive.",
+      "You always make me feel loved.",
+      "You’re the hottest, no debate.",
+      "You’re my favorite hello and hardest goodbye.",
+      "You make life 100x better.",
+      "You’re literally perfection to me.",
+      "I love your personality just as much as your looks.",
+      "You’re my soulmate.",
+      "You’re so thoughtful and kind.",
+      "You’re my entire heart.",
+      "You’re the best thing that’s ever happened to me."
+    ];
+
+    function newCompliment(){
+      const text = compliments[Math.floor(Math.random()*compliments.length)];
+      const el = document.getElementById('complimentDisplay');
+      el.innerText = text;
+      // tiny confetti effect using hearts
+      for(let i=0;i<6;i++){
+        createRainHeart( Math.random()*window.innerWidth, window.innerHeight - 120 - Math.random()*40, 600 + Math.random()*900);
+      }
+    }
+
+    /* ---------- Triple-click unlock logic ---------- */
+    let clicks = 0;
+    let clickTimer = null;
+    const CLICK_INTERVAL = 600; // ms to count triple click
+    document.addEventListener('click', (e)=> {
+      clicks++;
+      clearTimeout(clickTimer);
+      clickTimer = setTimeout(()=> clicks = 0, CLICK_INTERVAL);
+      if (clicks === 3) {
+        openOverlay();
+        clicks = 0;
+      }
+    });
+
+    /* ---------- Overlay open/close + floating flirt texts ---------- */
+    const flirtPhrases = [
+      "You're so gorgeous",
+      "ALLL MINEEE",
+      "I love you more lolz",
+      "MMMWAAH!!"
+    ];
+
+    let flirtInterval = null;
+    function openOverlay(){
+      const overlay = document.getElementById('hackerOverlay');
+      overlay.style.display = 'block';
+      overlay.setAttribute('aria-hidden','false');
+      spawnFlirts();
+    }
+    function closeOverlay(){
+      const overlay = document.getElementById('hackerOverlay');
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden','true');
+      // clear flirts
+      const fc = document.getElementById('flirtContainer');
+      fc.innerHTML = '';
+      if (flirtInterval) { clearInterval(flirtInterval); flirtInterval = null; }
+    }
+
+    function spawnFlirts(){
+      const container = document.getElementById('flirtContainer');
+      // spawn random flirt text at intervals
+      flirtInterval = setInterval(()=>{
+        const d = document.createElement('div');
+        d.className = 'float-flirt';
+        d.textContent = flirtPhrases[Math.floor(Math.random()*flirtPhrases.length)];
+        // randomized horizontal start
+        d.style.left = (10 + Math.random()*80) + 'vw';
+        d.style.fontSize = (14 + Math.random()*12) + 'px';
+        d.style.animationDuration = (6 + Math.random()*6) + 's';
+        d.style.transform = 'translateY(110vh)';
+        container.appendChild(d);
+        // cleanup after animation
+        setTimeout(()=> { try{ container.removeChild(d) } catch(e){} }, 12000);
+      }, 700);
+    }
+
+    /* ---------- Claim reward (and pretty heart rain) ---------- */
+    const rewards = [
+      "1,000 Kisses 😘",
+      "Unlimited Cuddles 🫂",
+      "Lifetime Supply of Love 💘",
+      "A Million MMMWAAHS 💋",
+      "A Surprise Date Night 🎁",
+      "An Extra-Large Hug Anytime 🤗"
+    ];
+    function claimReward(){
+      // random reward text
+      const res = rewards[Math.floor(Math.random()*rewards.length)];
+      const el = document.getElementById('claimResult');
+      el.innerText = res;
+
+      // heart rain effect (generate many hearts)
+      for(let i=0;i<20;i++){
+        setTimeout(()=> {
+          createRainHeart(Math.random()*window.innerWidth, window.innerHeight - (50 + Math.random()*80), 1200 + Math.random()*800);
+        }, i*45);
+      }
+    }
+
+    /* Utility: create a floating heart element for reward/confetti */
+    function createRainHeart(x, y, duration=1000){
+      const h = document.createElement('div');
+      h.className = 'rain-heart';
+      h.style.left = (x - 10) + 'px';
+      h.style.top = y + 'px';
+      h.style.fontSize = (18 + Math.random()*18) + 'px';
+      h.textContent = ['💖','💘','❣️','💕'][Math.floor(Math.random()*4)];
+      document.body.appendChild(h);
+      // remove after animation
+      setTimeout(()=> {
+        try { document.body.removeChild(h); } catch(e){}
+      }, duration + 200);
+    }
+
+    /* Prevent accidental triple-click when pressing overlay controls */
+    document.getElementById('hackerOverlay').addEventListener('click', (e) => {
+      e.stopPropagation();
+    }, true);
+
+    // accessibility: close overlay with Escape
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape') closeOverlay();
+    });
+  </script>
+</body>
+</html>
